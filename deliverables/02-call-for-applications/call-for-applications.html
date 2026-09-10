@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call for Applications — OHDSI Summer School 2027</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000080;
+    background: #f7f9fc;
+    line-height: 1.55;
+    font-size: 13px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 18px 16px 60px; }
+  .banner {
+    background: #ffd2c3;
+    border-left: 4px solid #ff5f5a;
+    color: #000080;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    border-radius: 0 4px 4px 0;
+  }
+  header.hero {
+    background: #000080;
+    color: #fff;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 8px;
+  }
+  header.hero h1 { font-family: Georgia, serif; font-size: 24px; line-height: 1.2; margin-bottom: 6px; }
+  header.hero .lead { font-size: 13px; opacity: 0.9; max-width: 62ch; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .pill {
+    background: #bdd4f0; color: #000080;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 3px 9px; border-radius: 10px;
+  }
+  .pill.warn { background: #ff5f5a; color: #fff; }
+  nav.toc {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    margin: 0 0 16px;
+  }
+  nav.toc a {
+    background: #e6dada; color: #000080; text-decoration: none;
+    font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 6px;
+  }
+  nav.toc a:hover { background: #bdd4f0; }
+  section {
+    background: #fff; border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 14px;
+  }
+  h2 {
+    font-family: Georgia, serif; font-size: 17px; margin-bottom: 4px;
+  }
+  .sec-sub { font-size: 11px; opacity: 0.65; margin-bottom: 12px; font-style: italic; }
+  h3 { font-size: 13px; margin: 14px 0 5px; }
+  p { margin-bottom: 8px; max-width: 78ch; }
+  ul, ol { margin: 0 0 8px 18px; }
+  li { margin-bottom: 4px; max-width: 76ch; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-bottom: 10px; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e6dada; vertical-align: top; }
+  th { background: #ebf2fb; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+  td.num { white-space: nowrap; font-weight: 700; }
+  .tbc {
+    background: #ffd2c3; color: #000080;
+    font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 4px;
+  }
+  .callout {
+    background: #ebf2fb; border-left: 3px solid #000080;
+    padding: 10px 12px; border-radius: 0 6px 6px 0; margin: 10px 0;
+  }
+  .callout.alert { background: #fff1ee; border-left-color: #ff5f5a; }
+  .callout .ct { font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-weight: 700; font-size: 12px; margin-bottom: 3px; }
+  .field .hint { font-size: 11px; opacity: 0.7; margin-bottom: 4px; }
+  .field input[type=text], .field input[type=email], .field select, .field textarea {
+    width: 100%; font-family: inherit; font-size: 12px; color: #000080;
+    border: 1px solid #bdd4f0; border-radius: 6px; padding: 7px 9px; background: #fff;
+  }
+  .field textarea { min-height: 66px; resize: vertical; }
+  .field .req { color: #ff5f5a; }
+  .checkline { display: flex; gap: 7px; align-items: flex-start; margin-bottom: 7px; font-size: 12px; }
+  .checkline input { margin-top: 3px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 620px) { .grid2 { grid-template-columns: 1fr; } }
+  button.submit {
+    background: #ff5f5a; color: #fff; border: none; border-radius: 6px;
+    font-family: inherit; font-size: 13px; font-weight: 700; padding: 10px 20px; cursor: not-allowed;
+    opacity: 0.75;
+  }
+  footer.pagefoot {
+    font-size: 11px; opacity: 0.7; text-align: center; margin-top: 18px;
+  }
+  .weight { display: inline-block; background: #000080; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 9px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">WORKSHOP EXERCISE — not an announced D4L event</div>
+
+  <header class="hero">
+    <h1>OHDSI Summer School 2027</h1>
+    <div class="lead">Five days in Potsdam for PhD students, early-career researchers and clinicians who want
+      to standardise the health data they already have — and leave with an open-source OMOP analytics
+      platform running on it.</div>
+    <div class="pill-row">
+      <span class="pill">4–8 October 2027 <span class="tbc">TBC</span></span>
+      <span class="pill">Potsdam, Germany</span>
+      <span class="pill">30 places</span>
+      <span class="pill">Application deadline: 31 March 2027 <span class="tbc">TBC</span></span>
+      <span class="pill warn">Bring your own data</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#about">The week</a>
+    <a href="#who">Who should apply</a>
+    <a href="#submit">What you submit</a>
+    <a href="#criteria">How we select</a>
+    <a href="#dates">Dates &amp; fees</a>
+    <a href="#form">Application form</a>
+    <a href="#privacy">Data protection</a>
+  </nav>
+
+  <!-- ============ LANDING PAGE COPY ============ -->
+  <section id="about">
+    <h2>Why this week exists</h2>
+    <div class="sec-sub">Landing-page copy</div>
+    <p>Most health data cannot answer the question you want to ask it. It is coded differently in every
+      hospital, it sits in silos, and it cannot legally leave the building. The OMOP Common Data Model and
+      the OHDSI toolchain were built to solve exactly that — and OHDSI Germany, founded in 2021, now has
+      roughly 130 community members and around 8 data partners working on it.</p>
+    <p>This summer school takes you through the whole chain once, on one clinical question, in five days:
+      from raw FHIR bundles, through vocabulary mapping and ETL, through data quality and characterisation,
+      to a cohort definition and a federated network-study specification. You work in a group of five on a
+      German-flavoured use case — anticoagulation monitoring in elderly patients across three synthetic
+      hospital datasets — and you present your result on Friday.</p>
+    <p>The platform is <strong>Data2Evidence (D2E)</strong>: the open-source, license-free OMOP platform
+      released by Data4Life in April 2025. It bundles the OHDSI tools you will use all week — White Rabbit
+      and Rabbit-in-a-Hat for scanning and ETL design, DQD for data quality, Achilles for characterisation,
+      PHOEBE for concept sets, ATLAS for cohort definitions — with Prefect for pipeline orchestration and a
+      Jupyter gateway for Python and R. It is federated by design: analyses run where the data is, and only
+      aggregated results leave the site.</p>
+    <div class="callout">
+      <div class="ct">The point of the week</div>
+      You leave with D2E running on data <em>you</em> control. Friday afternoon is a supported installation
+      lab on your own laptop or your institution's server — not a demo.
+    </div>
+    <h3>Who runs it</h3>
+    <p>Data4Life — a nonprofit healthtech organisation supported by the Hasso Plattner Foundation and
+      co-lead of the OHDSI Germany national node together with TU Dresden and Medical University Lausitz /
+      Carl Thiem Cottbus — <strong>hosts</strong> the school. It does not run the programme alone: at least
+      half of the teaching faculty are external to Data4Life, drawn from the OHDSI, EHDEN and MII/NUM-DIZ
+      communities. Faculty list to be announced. <span class="tbc">TBC</span></p>
+    <p>Teaching language is English.</p>
+  </section>
+
+  <section id="who">
+    <h2>Who should apply</h2>
+    <div class="sec-sub">Eligibility</div>
+    <p>We have 30 places. They are meant for people who can put OMOP to work at their own institution after
+      the week — not only for people who find it interesting.</p>
+    <h3>You are eligible if all of the following apply</h3>
+    <ul>
+      <li><strong>Career stage:</strong> PhD student, early-career researcher (roughly up to 8 years post-degree
+        <span class="tbc">TBC</span>), or clinician with a research role.</li>
+      <li><strong>Affiliation:</strong> a university, university hospital, research institute, public health
+        body, registry, or a non-profit healthcare organisation. Europe-wide; applicants from outside Europe
+        are welcome but travel is at their own cost.</li>
+      <li><strong>Data:</strong> you work with — or have a realistic path to working with — patient-level
+        health data at your institution. This can be EHR, claims, registry or cohort data. It does not have
+        to be in OMOP yet; that is the point of the week.</li>
+      <li><strong>Technical baseline:</strong> you are comfortable with SQL and with either R or Python, and
+        you can install Docker on the machine you will bring.</li>
+      <li><strong>Commitment:</strong> you can attend all five days. This is a single continuous use case;
+        partial attendance does not work.</li>
+    </ul>
+    <h3>What you need to bring</h3>
+    <ul>
+      <li>A laptop running macOS or Ubuntu on which you have administrator rights, with Docker and npm
+        installable. D2E is deployed as containers; a detailed pre-arrival install guide is sent with the
+        acceptance letter.</li>
+      <li>Optional but strongly encouraged: access to a dataset of your own that you may legitimately use
+        during the week. Bringing your own data is what turns the Friday lab into a working installation
+        rather than an exercise.</li>
+    </ul>
+    <div class="callout alert">
+      <div class="ct">You do not need to bring identifiable patient data to Potsdam</div>
+      The teaching use case runs on synthetic data. If you bring your own data, you keep it under your own
+      institution's governance and on your own infrastructure — the federated model means nothing has to be
+      transferred to us, and we do not ask for it.
+    </div>
+  </section>
+
+  <section id="submit">
+    <h2>What you submit</h2>
+    <div class="sec-sub">Application package — all fields in the form below</div>
+    <ol>
+      <li><strong>A short CV</strong> (max 2 pages, PDF): education, current position, relevant methods and
+        publications.</li>
+      <li><strong>Your data statement</strong> (max 250 words): which dataset you work with or expect to work
+        with, roughly how many patients, what it contains, who at your institution authorises access, and
+        whether any part of it is already in OMOP.</li>
+      <li><strong>Your research question</strong> (max 200 words): one observational question you would want
+        to answer with this data. Characterisation, effect estimation or prediction — say which.</li>
+      <li><strong>An adoption statement</strong> (max 200 words): what would change at your institution if
+        you came back with OMOP and D2E working. Who else would use it.</li>
+      <li><strong>A letter of support</strong> (1 page, PDF, signed by your data steward, DIZ lead, department
+        head or supervisor): confirms that you may spend the week on this and that the institution supports
+        an OMOP evaluation. <span class="tbc">TBC — whether this is mandatory or optional</span></li>
+      <li><strong>Technical self-assessment</strong>: SQL, R, Python, Docker, prior OMOP/OHDSI exposure.</li>
+    </ol>
+    <p>Everything is submitted in English through the form below. Incomplete applications are not scored.</p>
+  </section>
+
+  <!-- ============ SELECTION CRITERIA ============ -->
+  <section id="criteria">
+    <h2>How we select</h2>
+    <div class="sec-sub">Selection criteria and scoring — published in advance, applied by a human committee</div>
+    <p>The purpose of this school is adoption of an open-source OMOP toolchain in European research
+      institutions. The criteria are weighted accordingly: two thirds of the score is about whether OMOP will
+      actually be used at your site after the week.</p>
+    <table>
+      <thead>
+        <tr><th>Criterion</th><th style="width:80px">Weight</th><th>What scores well</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1. Data access <span class="weight">core</span></td>
+          <td class="num">35%</td>
+          <td>A named, existing dataset the applicant can realistically work with, with a named person or body
+            that authorises access. A concrete path to access scores higher than a large dataset the applicant
+            cannot touch. MII/NUM-DIZ sites, registries, hospital EHR, claims and cohort studies all qualify.</td>
+        </tr>
+        <tr>
+          <td class="num">2. Institutional weight <span class="weight">core</span></td>
+          <td class="num">25%</td>
+          <td>Evidence that the applicant can move their institution: a signed letter of support, a role with
+            a mandate (DIZ staff, data steward, methods group lead, PI), colleagues who would use the result.
+            One trained person inside a data-integration centre is worth more to the network than five
+            interested individuals without a site.</td>
+        </tr>
+        <tr>
+          <td class="num">3. Technical readiness</td>
+          <td class="num">15%</td>
+          <td>SQL plus R or Python at working level; ability to run Docker on the machine they bring. Enough
+            to keep up with five afternoon labs. Prior OMOP experience is a plus, not a requirement.</td>
+        </tr>
+        <tr>
+          <td class="num">4. Research question &amp; motivation</td>
+          <td class="num">15%</td>
+          <td>A specific, answerable observational question rather than a topic; a clear reason why
+            standardisation is the obstacle; realistic expectations of what OMOP does and does not solve.</td>
+        </tr>
+        <tr>
+          <td class="num">5. Network value &amp; balance</td>
+          <td class="num">10%</td>
+          <td>Applied at cohort level after scoring: spread across countries and institutions, a mix of
+            clinicians and methodologists, and representation of sites not yet in the OHDSI Germany network.
+            Maximum 3 participants per institution. <span class="tbc">TBC</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Process</h3>
+    <ul>
+      <li>Each criterion is scored 0–4 by <strong>two independent human reviewers</strong>; scores are
+        weighted and summed. Divergences greater than 2 points are resolved by a third reviewer.</li>
+      <li>The selection committee is composed of D4L organisers and external faculty. <span class="tbc">TBC — names</span></li>
+      <li>Reviewers declare conflicts of interest and do not score applicants from their own institution or
+        their own group.</li>
+      <li><strong>No automated or AI-based scoring is used.</strong> See the data protection note below.</li>
+      <li>A waiting list is kept until <span class="tbc">TBC</span> in case of withdrawals.</li>
+      <li>Decisions are communicated by e-mail with a short reason. Feedback beyond that is not provided.</li>
+    </ul>
+  </section>
+
+  <section id="dates">
+    <h2>Dates, fees and funding</h2>
+    <div class="sec-sub">All dates provisional until the programme is confirmed</div>
+    <table>
+      <thead><tr><th style="width:210px">Milestone</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td>Call opens</td><td>15 January 2027 <span class="tbc">TBC</span></td></tr>
+        <tr><td>Application deadline</td><td><strong>31 March 2027, 23:59 CET</strong> <span class="tbc">TBC</span></td></tr>
+        <tr><td>Notification of decisions</td><td>30 April 2027 <span class="tbc">TBC</span></td></tr>
+        <tr><td>Confirmation by accepted participants</td><td>21 May 2027 <span class="tbc">TBC</span></td></tr>
+        <tr><td>Pre-arrival install check (online, 90 min)</td><td>September 2027 <span class="tbc">TBC</span></td></tr>
+        <tr><td><strong>Summer school</strong></td><td><strong>4–8 October 2027, Potsdam</strong> <span class="tbc">TBC — Mon–Fri week to be fixed</span></td></tr>
+      </tbody>
+    </table>
+    <h3>Fee and funding model</h3>
+    <p>Proposed model, to be confirmed by the organising committee:</p>
+    <ul>
+      <li><strong>Tuition: no fee.</strong> The school is hosted by a nonprofit and teaches an open-source,
+        license-free platform; charging for it would work against the adoption goal. <span class="tbc">TBC</span></li>
+      <li><strong>Included:</strong> all teaching, materials, lunches and coffee breaks, welcome dinner and
+        closing reception. <span class="tbc">TBC</span></li>
+      <li><strong>Not included:</strong> travel and accommodation. Participants or their institutions cover
+        these. A block of rooms near the venue is reserved at a negotiated rate. <span class="tbc">TBC</span></li>
+      <li><strong>Travel bursaries:</strong> a limited number of bursaries is planned for applicants whose
+        institution cannot fund travel, awarded on need after selection on merit. Number and amount
+        <span class="tbc">TBC</span>. Applying for a bursary does not affect the selection score — the
+        need question is only opened after the academic decision.</li>
+      <li><strong>No-show policy:</strong> places are scarce; accepted participants who withdraw after
+        <span class="tbc">TBC</span> free their place for the waiting list.</li>
+    </ul>
+  </section>
+
+  <!-- ============ APPLICATION FORM ============ -->
+  <section id="form">
+    <h2>Application form</h2>
+    <div class="sec-sub">Field specification — this is a workshop mock-up; the form does not submit anywhere</div>
+
+    <form onsubmit="return false;">
+      <h3>1 · Applicant</h3>
+      <div class="grid2">
+        <div class="field">
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" placeholder="First and family name">
+        </div>
+        <div class="field">
+          <label>E-mail (institutional) <span class="req">*</span></label>
+          <input type="email" placeholder="name@institution.example">
+        </div>
+        <div class="field">
+          <label>Institution <span class="req">*</span></label>
+          <input type="text" placeholder="University / hospital / institute">
+        </div>
+        <div class="field">
+          <label>Country <span class="req">*</span></label>
+          <input type="text" placeholder="Country of the institution">
+        </div>
+        <div class="field">
+          <label>Current position <span class="req">*</span></label>
+          <select>
+            <option>PhD student</option>
+            <option>Postdoc / early-career researcher</option>
+            <option>Clinician with research role</option>
+            <option>Data-integration centre (DIZ) staff</option>
+            <option>Data steward / data manager</option>
+            <option>Other (specify below)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Years since highest degree <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. 3">
+        </div>
+      </div>
+      <div class="field">
+        <label>Short CV, max 2 pages, PDF <span class="req">*</span></label>
+        <div class="hint">Education, current position, relevant methods and publications.</div>
+        <input type="file" disabled>
+      </div>
+
+      <h3>2 · Data access <span class="weight">scored — 35%</span></h3>
+      <div class="field">
+        <label>Which dataset would you work with? <span class="req">*</span></label>
+        <div class="hint">Max 250 words. Name the source, roughly how many patients, what it contains
+          (diagnoses, medication, labs, notes), and the time range.</div>
+        <textarea placeholder="e.g. Inpatient EHR extract of our university hospital, ~180,000 patients 2015–2026, ICD-10-GM diagnoses, OPS procedures, PZN-coded medication, laboratory values."></textarea>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Who authorises your access to this data? <span class="req">*</span></label>
+          <div class="hint">Name and role of the person or body (data steward, DIZ lead, ethics committee).</div>
+          <input type="text" placeholder="Role and name">
+        </div>
+        <div class="field">
+          <label>Current state of access <span class="req">*</span></label>
+          <select>
+            <option>I have access now</option>
+            <option>Access approved, not yet started</option>
+            <option>Application for access in progress</option>
+            <option>Realistic path, not yet applied for</option>
+            <option>No path to data access yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Is any part of it already in OMOP CDM?</label>
+        <select>
+          <option>No</option>
+          <option>Partially / pilot ETL exists</option>
+          <option>Yes, fully mapped</option>
+          <option>Don't know</option>
+        </select>
+      </div>
+      <div class="checkline">
+        <input type="checkbox">
+        <span>I intend to bring my own dataset (on my own device / institutional infrastructure) to the
+          Friday installation lab.</span>
+      </div>
+
+      <h3>3 · Institutional weight <span class="weight">scored — 25%</span></h3>
+      <div class="field">
+        <label>What would change at your institution if you came back with OMOP and D2E working? <span class="req">*</span></label>
+        <div class="hint">Max 200 words. Who else would use it, which project would move, what is currently blocked.</div>
+        <textarea></textarea>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Is your institution part of an existing network?</label>
+          <select>
+            <option>MII data-integration centre (DIZ)</option>
+            <option>NUM-DIZ</option>
+            <option>EHDEN data partner</option>
+            <option>OHDSI Germany data partner</option>
+            <option>Other network</option>
+            <option>None</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Letter of support, 1 page, PDF <span class="req">*</span></label>
+          <div class="hint">Signed by data steward, DIZ lead, department head or supervisor.</div>
+          <input type="file" disabled>
+        </div>
+      </div>
+
+      <h3>4 · Research question <span class="weight">scored — 15%</span></h3>
+      <div class="field">
+        <label>One observational question you want to answer with this data <span class="req">*</span></label>
+        <div class="hint">Max 200 words.</div>
+        <textarea></textarea>
+      </div>
+      <div class="field">
+        <label>Question type <span class="req">*</span></label>
+        <select>
+          <option>Characterisation</option>
+          <option>Population-level effect estimation</option>
+          <option>Patient-level prediction</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+
+      <h3>5 · Technical readiness <span class="weight">scored — 15%</span></h3>
+      <div class="grid2">
+        <div class="field"><label>SQL</label>
+          <select><option>None</option><option>Basic</option><option>Working</option><option>Advanced</option></select></div>
+        <div class="field"><label>R</label>
+          <select><option>None</option><option>Basic</option><option>Working</option><option>Advanced</option></select></div>
+        <div class="field"><label>Python</label>
+          <select><option>None</option><option>Basic</option><option>Working</option><option>Advanced</option></select></div>
+        <div class="field"><label>Docker</label>
+          <select><option>Never used</option><option>Can run containers</option><option>Can build and debug</option></select></div>
+      </div>
+      <div class="field">
+        <label>Prior OMOP / OHDSI exposure</label>
+        <div class="hint">EHDEN Academy courses, ATLAS, ETL work, network studies — or none.</div>
+        <input type="text">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Laptop operating system you will bring <span class="req">*</span></label>
+          <select><option>macOS</option><option>Ubuntu / other Linux</option><option>Windows</option><option>Undecided</option></select>
+        </div>
+        <div class="field">
+          <label>Do you have administrator rights on that machine? <span class="req">*</span></label>
+          <select><option>Yes</option><option>No</option><option>Don't know</option></select>
+        </div>
+      </div>
+
+      <h3>6 · Practicalities</h3>
+      <div class="checkline">
+        <input type="checkbox"><span>I can attend all five days (4–8 October 2027). <span class="req">*</span></span>
+      </div>
+      <div class="checkline">
+        <input type="checkbox"><span>I would like to be considered for a travel bursary. This is assessed
+          only after the selection decision and does not affect my score.</span>
+      </div>
+      <div class="field">
+        <label>Accessibility requirements or dietary restrictions</label>
+        <div class="hint">Optional. Only asked so the venue and catering work for you. Some of this may reveal
+          health or belief information — see the data protection note; you may also tell us later, after
+          acceptance, instead of now.</div>
+        <textarea></textarea>
+      </div>
+
+      <h3>7 · Declarations</h3>
+      <div class="checkline">
+        <input type="checkbox"><span>I have read the data protection note below and understand how my
+          application data is processed. <span class="req">*</span></span>
+      </div>
+      <div class="checkline">
+        <input type="checkbox"><span>My statements are accurate and the letter of support is genuine. <span class="req">*</span></span>
+      </div>
+      <div class="checkline">
+        <input type="checkbox"><span><em>Optional:</em> if I am not selected, you may keep my application for
+          24 months and consider me for a future edition. I can withdraw this at any time.</span>
+      </div>
+      <p style="margin-top:14px"><button class="submit" disabled>Submit application — disabled (workshop mock-up)</button></p>
+    </form>
+  </section>
+
+  <!-- ============ DATA PROTECTION ============ -->
+  <section id="privacy">
+    <h2>Data protection note</h2>
+    <div class="sec-sub">Required because this form collects CVs, research topics and letters of support — all personal data under the GDPR</div>
+
+    <div class="callout alert">
+      <div class="ct">No AI scoring. No automated decision-making.</div>
+      Application data is <strong>not</strong> entered into any LLM, AI assistant or automated scoring agent —
+      not for ranking, not for summarising, not for pre-filtering. All scoring is done by named human
+      reviewers reading the applications directly. There is therefore no automated decision-making within
+      the meaning of Art. 22 GDPR. Should the organisers ever want to change this, it would require a
+      separate legal basis, a data protection impact assessment, an update to this note, and a documented
+      human-in-the-loop with a right to contest the decision — it cannot be introduced quietly.
+    </div>
+
+    <h3>Controller and contact</h3>
+    <p>Data4Life <span class="tbc">TBC — exact legal entity and address</span>, as organiser and host of the
+      summer school. Data protection officer: <span class="tbc">TBC — contact address</span>. For questions
+      about this application process: <span class="tbc">TBC — organiser mailbox</span>.</p>
+
+    <h3>What we collect</h3>
+    <table>
+      <thead><tr><th style="width:230px">Category</th><th>Fields</th></tr></thead>
+      <tbody>
+        <tr><td>Identity and contact</td><td>Name, institutional e-mail, institution, country</td></tr>
+        <tr><td>Professional profile</td><td>Position, years since degree, CV (PDF), technical self-assessment,
+          prior OHDSI exposure</td></tr>
+        <tr><td>Free-text statements</td><td>Data statement, research question, adoption statement</td></tr>
+        <tr><td>Third-party data</td><td>Letter of support — contains the name, role and signature of your
+          supervisor or data steward. Please inform that person that you are submitting it.</td></tr>
+        <tr><td>Special category data (Art. 9)</td><td>Only if you choose to enter it: accessibility
+          requirements or dietary restrictions may reveal health data or religious belief. This field is
+          optional and is not seen by reviewers.</td></tr>
+      </tbody>
+    </table>
+    <p>We do not ask for, and you must not upload, any patient-level or otherwise identifiable health data.
+      Describe your dataset — do not attach it.</p>
+
+    <h3>Lawful basis</h3>
+    <table>
+      <thead><tr><th style="width:230px">Purpose</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Processing and scoring your application; communicating the decision</td>
+            <td>Art. 6(1)(b) GDPR — steps taken at your request prior to participation.</td></tr>
+        <tr><td>Organising the week for accepted participants (list, groups, catering, certificates)</td>
+            <td>Art. 6(1)(b) GDPR.</td></tr>
+        <tr><td>Accessibility and dietary needs</td>
+            <td>Art. 9(2)(a) GDPR — your explicit consent, given by filling in that optional field.
+              Withdrawable at any time.</td></tr>
+        <tr><td>Aggregate, non-personal reporting on the school (number of applications, countries,
+            institution types) to funders and the OHDSI community</td>
+            <td>Art. 6(1)(f) GDPR — legitimate interest in evaluating a nonprofit training programme.
+              Published only in aggregate; balancing test on file. <span class="tbc">TBC</span></td></tr>
+        <tr><td>Keeping a rejected application for a future edition</td>
+            <td>Art. 6(1)(a) GDPR — the optional consent checkbox in section 7. Not giving it has no effect
+              on this year's decision.</td></tr>
+        <tr><td>Photographs at the event</td>
+            <td>Separate consent collected on site. <span class="tbc">TBC</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Who can see your application</h3>
+    <ul>
+      <li>The <strong>selection committee</strong> — a named, closed group of D4L organisers and external
+        faculty reviewers. External reviewers are bound by a written confidentiality commitment before
+        receiving any application. <span class="tbc">TBC — committee names published with the call</span></li>
+      <li>The <strong>event administration</strong> at Data4Life, for logistics and correspondence.</li>
+      <li>Nobody else. Applications are not shared with other applicants, with faculty who are not on the
+        committee, with sponsors, or with the wider OHDSI community.</li>
+      <li>Where reviewers are external, applications are shared <strong>pseudonymised where the criteria
+        allow it</strong> — institution and data description are needed for scoring and therefore remain
+        visible. <span class="tbc">TBC — confirm feasibility with the review tool</span></li>
+      <li>Processors: the form and mail infrastructure used to collect and store applications, under
+        Art. 28 GDPR contracts. <span class="tbc">TBC — name the tooling</span> No transfer to a third
+        country is intended; if one becomes necessary, it will be listed here with its safeguard.</li>
+    </ul>
+
+    <h3>How long we keep it</h3>
+    <table>
+      <thead><tr><th style="width:230px">Data</th><th>Retention</th></tr></thead>
+      <tbody>
+        <tr><td>Applications of <strong>rejected</strong> applicants</td>
+            <td>Deleted 6 months after the decision. <span class="tbc">TBC</span></td></tr>
+        <tr><td>Rejected applications with talent-pool consent</td>
+            <td>24 months from the decision, then deleted; earlier on withdrawal of consent.</td></tr>
+        <tr><td>Applications of <strong>accepted</strong> participants</td>
+            <td>Until 12 months after the end of the school, for administration, certificates and alumni
+              contact. <span class="tbc">TBC</span></td></tr>
+        <tr><td>Accessibility / dietary information</td>
+            <td>Deleted immediately after the event.</td></tr>
+        <tr><td>Aggregate statistics (no personal data)</td>
+            <td>Kept indefinitely — no longer personal data.</td></tr>
+        <tr><td>Scoring records</td>
+            <td>Kept with the corresponding application and deleted with it.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Your rights</h3>
+    <p>You may request access, rectification, erasure, restriction of processing, and data portability, and
+      you may object to processing based on legitimate interest (Art. 15–21 GDPR). Where processing rests on
+      consent, you may withdraw it at any time without affecting the lawfulness of what happened before.
+      You may lodge a complaint with a supervisory authority. <span class="tbc">TBC — competent authority</span></p>
+    <p>Withdrawing your application at any point before the decision means we delete it.</p>
+  </section>
+
+  <footer class="pagefoot">
+    WORKSHOP EXERCISE — not an announced D4L event · No real person is contacted, no application is collected.
+    All items marked <span class="tbc">TBC</span> are unconfirmed and must not be published as fact.
+  </footer>
+
+</div>
+</body>
+</html>
