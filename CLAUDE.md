@@ -153,6 +153,10 @@ deliverables/
   external logos, runnable locally without a network dependency.
 - Mark every unverified fact as `[TBC]` instead of guessing.
 - 60-minute time box: deliverables 1–3 first and complete, stretch goals 4–6 only afterwards.
+- **Team hand-off is file-based.** Teammates work in their own separate Claude sessions;
+  access rights prevent a shared session, so their content arrives as files handed over
+  ad hoc. Integrate each hand-off incrementally into the existing deliverables instead of
+  rewriting them, and expect the same file to arrive again in a newer version.
 
 ## 8. Coding conventions
 
