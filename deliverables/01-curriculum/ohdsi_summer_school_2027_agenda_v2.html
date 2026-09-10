@@ -1,0 +1,588 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .banner {
+    background: #ffd2c3;
+    border-left: 4px solid #ff5f5a;
+    color: #000080;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 6px 12px;
+    margin-bottom: 14px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .use-case-hero {
+    background: #e6dada;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .use-case-hero-title {
+    font-family: Georgia, serif;
+    color: #000080;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .use-case-hero-sub {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000080;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .pill {
+    background: #000080;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+  }
+  .pill.warn { background: #ff5f5a; }
+  .pill.soft { background: #bdd4f0; color: #000080; }
+
+  h1 {
+    font-family: Georgia, serif;
+    color: #000080;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .subtitle {
+    font-family: Arial, sans-serif;
+    color: #000080;
+    font-size: 12px;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+  .tab {
+    background: #e6dada;
+    color: #000080;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    padding: 7px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .tab.active { background: #bdd4f0; opacity: 1; }
+  .tab:hover { opacity: 0.9; }
+
+  .day-panel { display: none; background: #bdd4f0; border-radius: 0 8px 8px 8px; padding: 16px 18px; }
+  .day-panel.active { display: block; }
+
+  .day-title {
+    font-family: Georgia, serif;
+    color: #000080;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .day-theme {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000080;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .thread-badge {
+    display: inline-block;
+    background: #fda2a2;
+    color: #000080;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .session {
+    background: white;
+    border-radius: 8px;
+    padding: 11px 13px;
+    margin-bottom: 8px;
+    border-left: 3px solid transparent;
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .session.lecture { border-left-color: #000080; }
+  .session.lab { border-left-color: #fda2a2; }
+  .session.break { border-left-color: #e6dada; background: #f5f5f5; }
+  .session.keynote { border-left-color: #ff5f5a; }
+  .session.social { border-left-color: #ffd2c3; background: #fff8f5; }
+  .session.panel { border-left-color: #bdd4f0; }
+
+  .time {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #000080;
+    opacity: 0.6;
+    padding-top: 2px;
+  }
+  .slabel {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .session.lecture .slabel { color: #000080; }
+  .session.lab .slabel { color: #c0504d; }
+  .session.keynote .slabel { color: #ff5f5a; }
+  .session.social .slabel { color: #c47a50; }
+  .session.break .slabel { color: #999; }
+  .session.panel .slabel { color: #185FA5; }
+
+  .stitle {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000080;
+    margin-bottom: 2px;
+  }
+  .sdesc {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000080;
+    opacity: 0.75;
+    line-height: 1.5;
+  }
+  .speaker {
+    display: inline-block;
+    font-size: 9px;
+    background: #e6dada;
+    color: #000080;
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-top: 4px;
+    margin-right: 3px;
+    font-weight: 700;
+  }
+  .de-flag {
+    display: inline-block;
+    font-size: 9px;
+    background: #ffd2c3;
+    color: #000080;
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-top: 4px;
+    font-weight: 700;
+  }
+
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,128,0.15);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #000080;
+  }
+  .ldot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+</style>
+
+<div class="banner">WORKSHOP EXERCISE — not an announced D4L event</div>
+
+<h1>OHDSI Summer School 2027 — Potsdam</h1>
+<div class="subtitle">5 days · 30 places · PhD students, early-career researchers &amp; clinicians · at least half faculty external</div>
+
+<div class="use-case-hero">
+  <div class="use-case-hero-title">Use case thread: Anticoagulation monitoring in elderly patients across German hospital sites</div>
+  <div class="use-case-hero-sub">
+    Clinical question: Do elderly patients (≥75) discharged on oral anticoagulants (DOACs / VKAs) differ in their follow-up monitoring rates across three German hospital contexts — and can we detect this from FHIR-exported EHR data standardised to OMOP?<br><br>
+    This question is deliberately chosen because it hits the two unavoidable German data obstacles on every day of the week: <strong>PZN drug coding</strong> (DOACs are prescribed by package, not ingredient — rivaroxaban 20 mg film-coated tablet, PZN 09295940, is not the same OMOP concept as rivaroxaban) and <strong>FHIR-to-OMOP mapping</strong> (MII KDS Medication profile → DRUG_EXPOSURE is non-trivial). Neither is optional. Both are lab problems, not lecture slides.
+  </div>
+  <div class="pill-row">
+    <span class="pill">PZN → ATC → RxNorm/RxNorm Extension</span>
+    <span class="pill">MII KDS FHIR profiles</span>
+    <span class="pill">ICD-10-GM</span>
+    <span class="pill">LOINC INR measurements</span>
+    <span class="pill warn">German governance: MII Broad Consent + 16 Landeskrankenhausgesetze</span>
+    <span class="pill soft">Synthetic data: Synthea-FHIR with German extensions (flagged — see data note)</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showDay(0)">Day 1<br><span style="font-weight:400;font-size:9px">Mon</span></button>
+  <button class="tab" onclick="showDay(1)">Day 2<br><span style="font-weight:400;font-size:9px">Tue</span></button>
+  <button class="tab" onclick="showDay(2)">Day 3<br><span style="font-weight:400;font-size:9px">Wed</span></button>
+  <button class="tab" onclick="showDay(3)">Day 4<br><span style="font-weight:400;font-size:9px">Thu</span></button>
+  <button class="tab" onclick="showDay(4)">Day 5<br><span style="font-weight:400;font-size:9px">Fri</span></button>
+</div>
+
+<div class="day-panel active" id="day-0">
+  <div class="day-title">Day 1 — Why health data cannot answer anything yet</div>
+  <div class="day-theme">From fragmented hospital data to a shared standard — the German version of the problem</div>
+  <div class="thread-badge">Use case thread: receiving and scanning three synthetic FHIR bundles</div>
+
+  <div class="session keynote">
+    <div class="time">09:00–09:45</div>
+    <div class="session-content">
+      <div class="slabel">Keynote</div>
+      <div class="stitle">Welcome: OHDSI, Germany, and why this week matters</div>
+      <div class="sdesc">OHDSI Germany node status, the path to OHDSI Germany e.V., and the 2028 Symposium horizon. Why D4L is hosting but not running this school.<br>
+      <span class="speaker">External: OHDSI Europe / OHDSI Germany co-lead</span> <span class="speaker">D4L: Ben Illigens</span></div>
+    </div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">09:45–11:00</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">The health data problem — the three root causes, the German edition</div>
+      <div class="sdesc">Not harmonised (ICD-10-GM, OPS, PZN, EBM — all different from OMOP standard concepts). Locked in silos (§21 KHEntgG, DRG data, 41 MII DIZ sites, 22 NUM-DIZ sites committed to OMOP — all holding separate islands). Hard to share (16 state hospital laws, GDPR, MII Broad Consent — why data must stay local). OMOP CDM as the universal adapter. Person-centric design, separated structure and semantics.<br>
+      <span class="de-flag">Germany-specific: MII/NUM-DIZ landscape</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">11:00–11:15</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">11:15–12:30</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">FHIR in Germany — MII Core Data Set, NUM-DIZ, and FHIR-to-OMOP</div>
+      <div class="sdesc">FHIR as the dominant interoperability standard in Germany. MII KDS profiles: Patient, Encounter, Condition (ICD-10-GM), Medication, MedicationStatement, Observation (LOINC). Why FHIR-to-OMOP is the real German ETL problem, not CSV-to-OMOP. Introduction to the three synthetic "hospital" FHIR bundles participants will work with all week.<br>
+      <span class="speaker">External: MII / NUM-DIZ FHIR expert (TU Dresden or Med. Univ. Lausitz)</span><br>
+      <span class="de-flag">Germany-specific: MII KDS, ICD-10-GM, OPS</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">12:30–13:30</div>
+    <div class="session-content"><div class="slabel">Lunch</div><div class="stitle">Lunch break</div></div>
+  </div>
+
+  <div class="session lab">
+    <div class="time">13:30–15:30</div>
+    <div class="session-content">
+      <div class="slabel">Hands-on Lab 1</div>
+      <div class="stitle">Scanning the FHIR bundles with White Rabbit in D2E</div>
+      <div class="sdesc">Groups receive three synthetic FHIR-format datasets (Synthea-DE flavoured, flagged as synthetic). Load into D2E. Run White Rabbit to generate a field-level inventory. Use Rabbit-in-a-Hat to begin sketching FHIR → OMOP mapping for MedicationStatement → DRUG_EXPOSURE. First encounter with PZN codes in the Medication resource — note the absence of RxNorm. Question to carry into Day 2: how do we get from PZN 09295940 to a standard OMOP drug concept?</div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">15:30–15:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">15:45–16:45</div>
+    <div class="session-content">
+      <div class="slabel">Discussion</div>
+      <div class="stitle">What did White Rabbit reveal? — open questions for the week</div>
+      <div class="sdesc">Groups share their mapping sketches. Facilitator surfaces the structural difference between the three hospital bundles. Introduces D2E as the platform that holds all these tools in one workflow. Closes with the governance framing: why this data must stay local, and what that means for the anticoagulation study design.</div>
+    </div>
+  </div>
+
+  <div class="session social">
+    <div class="time">18:00–20:00</div>
+    <div class="session-content"><div class="slabel">Social</div><div class="stitle">Welcome dinner — Potsdam</div></div>
+  </div>
+</div>
+
+<div class="day-panel" id="day-1">
+  <div class="day-title">Day 2 — Vocabulary, PZN mapping &amp; FHIR-to-OMOP ETL</div>
+  <div class="day-theme">From PZN package codes to standard OMOP drug concepts — the hard part, done properly</div>
+  <div class="thread-badge">Use case thread: mapping anticoagulant medications through PZN → ATC → RxNorm/RxNorm Extension</div>
+
+  <div class="session lecture">
+    <div class="time">09:00–10:30</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">OMOP vocabulary &amp; the PZN problem</div>
+      <div class="sdesc">How OMOP vocabulary works: source codes → standard concept IDs. The standard drug hierarchy: ingredient → clinical drug → branded drug → drug package. PZN (Pharmazentralnummer) as a package-level identifier: no native OMOP standard concept. The ATC bridge: PZN → ATC code → RxNorm/RxNorm Extension via OMOP vocabulary chains. Where the mapping is lossy and why that matters clinically (rivaroxaban 10 mg vs 20 mg — different indication, same ingredient). Usagi walkthrough for concept mapping. PHOEBE for concept set recommendations.<br>
+      <span class="speaker">External: OMOP vocabulary / terminology expert</span><br>
+      <span class="de-flag">Germany-specific: PZN, ATC mapping, German drug package granularity</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">10:30–10:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">10:45–12:00</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">ETL orchestration with Prefect &amp; FHIR ingestion in D2E</div>
+      <div class="sdesc">ETL pipeline design for FHIR bundles: extracting MII KDS Condition (ICD-10-GM → SNOMED), Encounter (§21 KHEntgG stay data → VISIT_OCCURRENCE), Observation (LOINC INR → MEASUREMENT), MedicationStatement (PZN → DRUG_EXPOSURE via ATC). Prefect orchestration in D2E: transparency, error handling, reproducibility. Predefined FHIR-to-OMOP flows in D2E.<br>
+      <span class="speaker">External: OMOP ETL / FHIR-to-OMOP practitioner</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">12:00–13:00</div>
+    <div class="session-content"><div class="slabel">Lunch</div><div class="stitle">Lunch break</div></div>
+  </div>
+
+  <div class="session lab">
+    <div class="time">13:00–15:30</div>
+    <div class="session-content">
+      <div class="slabel">Hands-on Lab 2</div>
+      <div class="stitle">Running the FHIR-to-OMOP ETL and mapping PZN codes in D2E</div>
+      <div class="sdesc">Groups run the ETL pipeline in D2E for their hospital FHIR bundle. Core mapping task: take the PZN codes from MedicationStatement, use Usagi to find ATC equivalents, then trace to RxNorm/RxNorm Extension standard concepts. Document decisions where the mapping is ambiguous (e.g. which rivaroxaban package maps to which clinical drug concept). Load DRUG_EXPOSURE and MEASUREMENT (INR values from LOINC observations) into OMOP tables. Verify CONDITION_OCCURRENCE from ICD-10-GM codes (F10, I48, I26 — alcohol use disorder, atrial fibrillation, pulmonary embolism — as anticoagulation indications).<br>
+      <span class="de-flag">Germany-specific: PZN, ICD-10-GM, MII KDS FHIR profiles</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">15:30–15:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">15:45–17:00</div>
+    <div class="session-content">
+      <div class="slabel">Discussion</div>
+      <div class="stitle">Mapping decisions debrief — where did your groups disagree?</div>
+      <div class="sdesc">Groups compare PZN mapping decisions. Facilitator surfaces disagreements: where did two groups map the same PZN to different concept IDs? What does that mean for a federated network study where sites make independent mapping decisions? Sets up Day 3 DQD discussion. External faculty comments on how EHDEN sites handled this.</div>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="day-2">
+  <div class="day-title">Day 3 — Data quality, characterisation &amp; federated analytics</div>
+  <div class="day-theme">Trust your OMOP data enough to run a study — and understand why data must stay local</div>
+  <div class="thread-badge">Use case thread: DQD report on anticoagulant drug exposure; Achilles characterisation; simulated federated count query</div>
+
+  <div class="session lecture">
+    <div class="time">09:00–10:30</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">Data Quality Dashboard, Achilles, and what "good enough" looks like</div>
+      <div class="sdesc">Systematic DQD checks against OMOP CDM: completeness, conformance, plausibility. Reading a DQD report. Achilles for database-level characterisation and summary statistics. How mapping decisions from Day 2 propagate into DQD failures. Common failure patterns in German FHIR-to-OMOP ETLs (missing drug_source_concept_id, INR measurements with no unit_concept_id, ICD-10-GM codes not mapped to SNOMED). When is data quality good enough to proceed?<br>
+      <span class="speaker">External: DQD / OHDSI methods expert</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">10:30–10:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">10:45–12:00</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">Federated research without data transfer — EHDEN, DARWIN EU, and German governance</div>
+      <div class="sdesc">Why data stays local: MII Broad Consent, 16 Landeskrankenhausgesetze, GDPR. The federated model: queries run locally, only aggregated results leave the site. EHDEN: 210 harmonised sources, 30 countries. DARWIN EU: 263M patients, privacy-by-design. Strategus for orchestrating network studies. What this means for the anticoagulation study: each "hospital" computes its own cohort counts; no individual records leave.<br>
+      <span class="speaker">External: EHDEN / DARWIN EU practitioner</span><br>
+      <span class="de-flag">Germany-specific: MII Broad Consent, Landeskrankenhausgesetze, GDPR</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">12:00–13:00</div>
+    <div class="session-content"><div class="slabel">Lunch</div><div class="stitle">Lunch break</div></div>
+  </div>
+
+  <div class="session lab">
+    <div class="time">13:00–15:30</div>
+    <div class="session-content">
+      <div class="slabel">Hands-on Lab 3</div>
+      <div class="stitle">Running DQD and Achilles; simulating a federated count query in D2E</div>
+      <div class="sdesc">Groups run DQD on their OMOP dataset in D2E and review the quality report. Run Achilles characterisation. Core task: identify DQD failures that trace back to PZN mapping decisions from Day 2 and decide whether to fix the mapping or flag the limitation. Federated simulation: each group computes the count of elderly patients (≥75) with an anticoagulant DRUG_EXPOSURE within 30 days of an atrial fibrillation CONDITION_OCCURRENCE, then shares only that count with the class. Facilitator aggregates on the board — no individual records shared.<br>
+      <span class="de-flag">Germany-specific: governance-driven federated design</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">15:30–15:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session panel">
+    <div class="time">15:45–17:00</div>
+    <div class="session-content">
+      <div class="slabel">Panel</div>
+      <div class="stitle">Panel: Running real network studies in Germany — what actually breaks</div>
+      <div class="sdesc">External practitioners from MII/NUM-DIZ sites and OHDSI Germany discuss: where real FHIR-to-OMOP ETLs fail, how sites handle PZN mapping decisions in practice, governance bottlenecks, and what the first OHDSI Germany network study should look like. Open Q&amp;A.<br>
+      <span class="speaker">External panel: 2–3 MII DIZ / OHDSI Germany practitioners</span></div>
+    </div>
+  </div>
+
+  <div class="session social">
+    <div class="time">19:00</div>
+    <div class="session-content"><div class="slabel">Social</div><div class="stitle">Midweek social — optional evening in Potsdam</div></div>
+  </div>
+</div>
+
+<div class="day-panel" id="day-3">
+  <div class="day-title">Day 4 — Cohort definition, analysis &amp; network study design</div>
+  <div class="day-theme">Building a reproducible cohort and a protocol that could run at every OHDSI Germany site</div>
+  <div class="thread-badge">Use case thread: defining the elderly anticoagulation cohort in ATLAS; characterising in Python/R; drafting the network study specification</div>
+
+  <div class="session lecture">
+    <div class="time">09:00–10:30</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">Cohort definition methodology, ATLAS, and real-time feasibility checks in D2E</div>
+      <div class="sdesc">What is a cohort in OMOP terms? Index date, inclusion/exclusion criteria, observation period requirements. ATLAS 3.0 for cohort definition and study design. How D2E extends ATLAS with a real-time feasibility check against the local OMOP dataset. PHOEBE for concept set recommendations — critical for identifying all PZN-derived drug concept IDs that should be in the "oral anticoagulant" concept set. Exporting cohorts to ATLAS for study execution while maintaining reproducibility.<br>
+      <span class="speaker">External: OHDSI ATLAS / HADES expert</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">10:30–10:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">10:45–12:00</div>
+    <div class="session-content">
+      <div class="slabel">Lecture</div>
+      <div class="stitle">Population-level effect estimation, patient-level prediction &amp; HADES</div>
+      <div class="sdesc">HADES methods suite: characterisation, effect estimation, prediction — choosing the right study design. The anticoagulation research question is a characterisation study (do monitoring rates differ?) — walk through why this is not a causal inference question and when it would be. Strategus for orchestrating HADES modules across network sites. How results flow: only aggregated outputs leave each node.<br>
+      <span class="speaker">External: HADES / epidemiology methods expert</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">12:00–13:00</div>
+    <div class="session-content"><div class="slabel">Lunch</div><div class="stitle">Lunch break</div></div>
+  </div>
+
+  <div class="session lab">
+    <div class="time">13:00–15:30</div>
+    <div class="session-content">
+      <div class="slabel">Hands-on Lab 4</div>
+      <div class="stitle">Building the anticoagulation cohort in D2E; analysis in Python/R; drafting the network study protocol</div>
+      <div class="sdesc">Core cohort definition: patients ≥75 discharged with an ICD-10-GM I48 (atrial fibrillation) or I26 (pulmonary embolism) diagnosis AND a DOAC or VKA DRUG_EXPOSURE within 30 days of discharge AND at least one INR or anti-Xa MEASUREMENT within 90 days. Build in D2E cohort builder with real-time feasibility check. Open D2E Jupyter notebook: characterise the cohort (age distribution, comorbidities, time-to-first-INR) in Python/R against the local OMOP dataset. Groups draft a minimal Strategus network study specification to run this characterisation at all three "hospital nodes" — record what they would need to send to each site and what they expect back.<br>
+      <span class="de-flag">Germany-specific: ICD-10-GM I48/I26, LOINC INR, PZN-derived drug concepts</span></div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">15:30–15:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">15:45–17:00</div>
+    <div class="session-content">
+      <div class="slabel">Mentoring</div>
+      <div class="stitle">Project group mentoring — Friday presentation prep</div>
+      <div class="sdesc">Each group works on their Day 5 presentation (~5 min). External faculty circulate as mentors. Groups must define: (1) their research question, (2) mapping decisions and their rationale, (3) DQD findings and limitations, (4) cohort count from the federated simulation, (5) one thing they would do differently in a real network study.</div>
+    </div>
+  </div>
+</div>
+
+<div class="day-panel" id="day-4">
+  <div class="day-title">Day 5 — Presentations, installation &amp; next steps</div>
+  <div class="day-theme">Show your work. Leave with D2E running on data you control. Join the network.</div>
+  <div class="thread-badge">Use case thread: full study debrief — federated anticoagulation results across all "hospital nodes"</div>
+
+  <div class="session keynote">
+    <div class="time">09:00–09:30</div>
+    <div class="session-content">
+      <div class="slabel">Keynote</div>
+      <div class="stitle">From summer school to first OHDSI Germany network study</div>
+      <div class="sdesc">OHDSI Germany e.V. roadmap. How the anticoagulation use case from this week could become the first real network study run across MII DIZ sites. The 2028 OHDSI Europe Symposium as the destination. Call to action: join a working group, adopt OMOP at your site, bring your own data.<br>
+      <span class="speaker">D4L: Ben Illigens</span> <span class="speaker">External: OHDSI Germany co-leads</span></div>
+    </div>
+  </div>
+
+  <div class="session lecture">
+    <div class="time">09:30–12:00</div>
+    <div class="session-content">
+      <div class="slabel">Participant Presentations</div>
+      <div class="stitle">Group project presentations (6 × ~20 min + Q&amp;A)</div>
+      <div class="sdesc">Each group presents: (1) their three-site federated cohort count and what differs across hospitals, (2) the PZN mapping decisions they made and where they diverged from other groups, (3) DQD findings and data quality limitations, (4) what their Strategus network study specification would send to each site and what it would get back, (5) one honest lesson about German health data. External faculty panel provides structured feedback. Facilitator aggregates all groups' federated counts on the board — the first "OHDSI Germany network result".</div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">12:00–13:00</div>
+    <div class="session-content"><div class="slabel">Lunch</div><div class="stitle">Lunch break</div></div>
+  </div>
+
+  <div class="session lab">
+    <div class="time">13:00–14:30</div>
+    <div class="session-content">
+      <div class="slabel">Hands-on Lab 5</div>
+      <div class="stitle">Bring Your Own Data — D2E installation on participant infrastructure</div>
+      <div class="sdesc">Participants install D2E on their own laptop or institutional server (Docker + npm, MacOS/Ubuntu). D4L support team on hand. Goal: everyone leaves with D2E running on data they control. For participants with access to their own FHIR data (e.g. from a MII DIZ), facilitators help them begin a White Rabbit scan of their own source. Cloud-based deployment demonstrated in parallel for those without local infrastructure.</div>
+    </div>
+  </div>
+
+  <div class="session break">
+    <div class="time">14:30–14:45</div>
+    <div class="session-content"><div class="slabel">Break</div><div class="stitle">Coffee</div></div>
+  </div>
+
+  <div class="session keynote">
+    <div class="time">14:45–16:00</div>
+    <div class="session-content">
+      <div class="slabel">Closing</div>
+      <div class="stitle">End-of-school quiz, retrospective &amp; certificates</div>
+      <div class="sdesc">Interactive 10-question quiz (dashboard format in D2E / Jupyter). Retrospective: what worked, what didn't, what needs to change before the 2028 Symposium. Certificates of completion. Call to action: EHDEN Academy, OHDSI working groups, OHDSI Germany community calls.<br>
+      <span class="speaker">All faculty</span></div>
+    </div>
+  </div>
+
+  <div class="session social">
+    <div class="time">16:00–18:00</div>
+    <div class="session-content">
+      <div class="slabel">Social</div>
+      <div class="stitle">Closing reception — Potsdam</div>
+      <div class="sdesc">Informal farewell. Faculty and participants. Networking for future OHDSI Germany collaborations.</div>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="ldot" style="background:#000080"></div> Lecture</div>
+  <div class="legend-item"><div class="ldot" style="background:#fda2a2"></div> Hands-on lab</div>
+  <div class="legend-item"><div class="ldot" style="background:#ff5f5a"></div> Keynote / Closing</div>
+  <div class="legend-item"><div class="ldot" style="background:#bdd4f0"></div> Panel</div>
+  <div class="legend-item"><div class="ldot" style="background:#ffd2c3"></div> Social</div>
+  <div class="legend-item"><div class="ldot" style="background:#e6dada"></div> Break</div>
+  <div class="legend-item"><div class="ldot" style="background:#ffd2c3; border: 1px solid #fda2a2"></div> Germany-specific content</div>
+</div>
+
+<script>
+function showDay(i) {
+  document.querySelectorAll('.day-panel').forEach((p,j) => p.classList.toggle('active', i===j));
+  document.querySelectorAll('.tab').forEach((t,j) => t.classList.toggle('active', i===j));
+}
+</script>
