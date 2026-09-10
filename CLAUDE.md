@@ -153,3 +153,32 @@ deliverables/
   external logos, runnable locally without a network dependency.
 - Mark every unverified fact as `[TBC]` instead of guessing.
 - 60-minute time box: deliverables 1–3 first and complete, stretch goals 4–6 only afterwards.
+
+## 8. Coding conventions
+
+- Commit messages: `<feat|fix|docs|refactor>: <sentence>` — the shortest English sentence that
+  names the change and its purpose, e.g. `docs: Add git conventions to keep commits uniform`.
+  `refactor` covers moving, renaming and deleting without a change in behaviour.
+  Work happens on `main`; no branches for now.
+- **Every commit Claude makes carries its session ID as a trailer**, so a commit can be traced
+  back to the conversation that produced it. Read the ID from the environment — never guess it:
+
+  ```bash
+  git commit -m "docs: Add git conventions to keep commits uniform" \
+    --trailer "Claude-Session-Id=$CLAUDE_CODE_SESSION_ID" \
+    --trailer "Co-Authored-By=Claude Opus 5 (1M context) <noreply@anthropic.com>"
+  ```
+
+  Use `--trailer`, not a second `-m`: repeated `-m` puts a blank line between the blocks, and
+  Git parses only the last paragraph as trailers — the session ID then degrades to prose and
+  `git log --format='%(trailers:key=Claude-Session-Id,valueonly)'` finds nothing.
+  Commits made by hand do not need it.
+- **Everything written to this repository is in English** — code and documentation alike:
+  identifiers, comments, docstrings, log and error messages, README files, commit messages,
+  regardless of the language of the conversation.
+- **Chat tone: scientific.** Factual, precise, short. No filler words, no apologies, no praise.
+  Hold that register even when the user's own messages are casual or padded.
+  Answer in whatever language the user is currently writing in.
+- **Ask when the task, its goal or the direction of the session is unclear** — a question beats
+  a guess. The user often dictates via a microphone app, so prompts can also carry unusual
+  transcription errors; ask likewise when a passage is garbled or contradicts its context.
